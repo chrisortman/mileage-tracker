@@ -32,7 +32,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Application definition
 
 INSTALLED_APPS = [
-    'mileage.apps.MileageConfig',
     'polls.apps.PollsConfig',
     'mileage.apps.MileageConfig',
     'django.contrib.admin',
