@@ -1,0 +1,29 @@
+<h1>Enter Fill Up</h1>
+
+<form method="POST" action="/mileage/fillup/save">
+  {% csrf_token %}
+  <p>
+    <label for="odometer">Odometer</label>
+    <input type="text" name="odometer">
+  </p>
+  <p>
+    <label for="gallons">Gallons</label>
+    <input type="text" name="gallons">
+  </p>
+  <p>
+    <label for="cpg">CPG</label>
+    <input type="text" name="cpg">
+  </p>
+  <p>
+    <label for="fueltype">Fuel Type</label>
+    <select name="fueltype">
+      <option>87</option>
+      <option>89</option>
+      <option>E 85</option>
+      <option>E 15</option>
+    </select>
+  </p>
+
+  <p>
+    <button>Submit</button>
+</form>
