@@ -4,21 +4,14 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 from .models import FillUp
+from .levels.opening_level import OpeningLevel
 
 def index(request):
-    some_text = """
-    Hello!
-
-    This is a formatted
-
-        text block
-    """
-
-
+    level = OpeningLevel()
     name = User.objects.first().username
     context = {
         'name' : name,
-        'tt' : some_text,
+        'tt' : level.enter(),
         'birthday': '12/6/1979',
         'numbers' : [1,2,3]
     }
