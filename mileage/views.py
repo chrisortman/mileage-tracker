@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 from .models import FillUp
@@ -18,6 +19,26 @@ def index(request):
 
     return render(request, 'mileage/index.html', context)
 
+def login(request):
+    current_user = request.user
+    if current_user is not None:
+        return HttpResponse("You are already logged in %s" % current_user.username)
+        
+    context = {}
+    return render(request, 'mileage/login.html', context)
+    
+def do_login(request):
+    context = {}
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username,password=password)
+    is_authenticated = False
+    if user is not None:
+        is_authenticated = True
+    return HttpResponse(
+        "Testing %s is authenticated: %s" % (username, is_authenticated)
+    )
+    
 def other(request):
     context = {}
     return render(request, 'mileage/other.html', context)

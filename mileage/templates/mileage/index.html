@@ -1,10 +1,27 @@
-<p>The quick brown fox jumped</p>
-<p>over the lazy dog</p>
+{% extends 'mileage/base.html' %}
 
-<p>
+{% block title %}
+  The most awesome page in the universe
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-4">
+    
+<p>over the lazy dog</p>
+  </div>
+  <div class="col-md-4">
+    
+<p class="muted">The quick brown fox jumped</p>
+  </div>
+  <div class="col-md-4">
+    
+<p id="darkRoom">
   You enter a dark room
 </p>
-
+  </div>
+  
+</div>
 <a href="/mileage/other">Turn on light</a>
 <br>
 <a href="/mileage/poop">Squat</a>
@@ -18,23 +35,28 @@
 <img src="http://i.imgur.com/aw6jHlA.png"
 style="height:100px; width:100px;" />
 
+<div class="row">
+  <div class="col-md-6">
 <form>
-    Name <input type="text" />
-    
+  <div class="form-group">
+    <label>Name</label> <input type="text" class="form-control" />
+   </div> 
     <textarea rows="10" cols="80">
         
         
     </textarea>
     
 </form>
+</div>
+</div>
   <article class="user_review">
-      <p>Way too scary for me.</p>
+      <p class="muted">Way too scary for me.</p>
       <footer>
         <p>
           Posted on <time datetime="2015-05-16 19:00">May 16</time> by Lisa.
         </p>
       </footer>
     </article>
-    
+{% endblock %}  
     
     
