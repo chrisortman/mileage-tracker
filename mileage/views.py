@@ -13,7 +13,7 @@ def index(request):
     context = {
         'name' : name,
         'tt' : level.enter(),
-        'birthday': '12/6/1979',
+        'birthday': '12/6/1980',
         'numbers' : [1,2,3]
     }
 

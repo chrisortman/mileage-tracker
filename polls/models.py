@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils import timezone
+import datetime
 
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Question(models.Model):
@@ -11,7 +13,11 @@ class Question(models.Model):
 
     def was_published_recently(self):
         yesterday = timezone.now() - datetime.timedelta(days=1)
-        return self.pub_date >= yesterday
+        tomorrow = timezone.now() + datetime.timedelta(days=1)
+        if self.pub_date >= tomorrow:
+            return False
+        else:
+            return self.pub_date >= yesterday
 
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Choice(models.Model):
